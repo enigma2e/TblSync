@@ -1,0 +1,16 @@
+#!/bin/ksh
+
+daemon="/usr/local/tblsync/bin/tblsyncd"
+daemon_flags="--pid /var/run/tblsync.pid"
+
+. /etc/rc.d/rc.subr
+
+pexp="ruby ${daemon}"
+rc_check() {
+        pgrep -T "${daemon_rtable}" -q -f "${pexp}"
+}
+_rc_sendsig() {
+        pkill -${1:-TERM} -T "${daemon_rtable}" -f "${pexp}"
+}
+
+rc_cmd $1

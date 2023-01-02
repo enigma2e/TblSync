@@ -1,0 +1,1452 @@
+[
+  {
+    "physical_address": "32:db:e8:00:00:00",
+    "name": "Main Connection Users",
+    "description": "Hosts routed out main internet connection",
+    "hostname": "-",
+    "ip_addresses": [
+      "0.0.0.0/0",
+      "::/0"
+    ],
+    "tables": [
+      "use_main"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "32:db:e8:00:00:01",
+    "name": "Backup Connection Users",
+    "description": "Hosts routed out backup internet connection",
+    "hostname": "-",
+    "ip_addresses": [
+      "10.84.18.0/24",
+      "2001:470:b811:1200::/64",
+      "10.84.35.0/24",
+      "2001:470:b811:2200::/64",
+      "10.84.48.0/20",
+      "2001:470:b811:3000::/52"
+    ],
+    "tables": [
+      "use_bkup"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "00:a0:98:23:9f:6c",
+    "name": "Network Subsystem - IOT Router",
+    "description": "IOT Router",
+    "hostname": "iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "b8:27:eb:ce:5c:55",
+    "name": "Network Subsystem - Canary",
+    "description": "Network Canary Monitoring",
+    "hostname": "canary.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "00:15:5d:10:1e:4e",
+    "name": "Network Subsystem - DNS SD",
+    "description": "DNS-SD Proxy Host",
+    "hostname": "dns-sd.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "64:66:b3:64:2d:72",
+    "name": "Network Subsystem - Old-Spec Access Point",
+    "description": "Legacy WiFi for 2.4 GHz IOT devices w/out Band Steering",
+    "hostname": "wifi.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "c8:60:00:1e:db:26",
+    "name": "Remote Control - ASUS Transformer TF101 Tablet",
+    "description": "ASUS TF101 Tablet",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "7c:89:56:45:1f:d2",
+    "name": "Remote Control - Galaxy Tablet",
+    "description": "Samsung Galaxy Tablet",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "00:ee:bd:a1:eb:49",
+    "name": "Remote Control - HtcOneM8 Phone",
+    "description": "HTC One M8",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "40:4e:36:0c:0a:ec",
+    "name": "Remote Control - HtcU11 Phone",
+    "description": "HTC U11",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "94:65:2d:a8:d1:8a",
+    "name": "Remote Control - OnePlusA5 Phone",
+    "description": "OnePlus A5",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "64:a2:f9:ee:fc:32",
+    "name": "Remote Control - OnePlusA6 Phone",
+    "description": "OnePlus A6",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "00:25:d3:d8:68:64",
+    "name": "Remote Control - ASUS eeePC",
+    "description": "ASUS eeePC for Haunted House",
+    "hostname": "averone.exile.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "80:1f:12:55:7d:34",
+    "name": "Low Level - Office IO",
+    "description": "Office IO Control Board",
+    "hostname": "office-io.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "d8:80:39:97:2c:5c",
+    "name": "Low Level - Attic IO",
+    "description": "Attic IO Control Board",
+    "hostname": "attic-io.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "d8:80:39:ed:f8:56",
+    "name": "Low Level - HVAC Read",
+    "description": "HVAC Read-Only Monitoring Board",
+    "hostname": "hvac-read.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "80:1f:12:55:51:99",
+    "name": "Low Level - HVAC Write",
+    "description": "HVAC Controller Board",
+    "hostname": "hvac-write.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "68:27:19:8f:9e:40",
+    "name": "Low Level - Irrigation System Controller",
+    "description": "Irrigation System Controller Board",
+    "hostname": "sprinkler-io.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "9c:a5:25:84:e1:a2",
+    "name": "Low Level - RF Bridge",
+    "description": "433Mhz Bi-Direction RF Bridge",
+    "hostname": "rf-bridge.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "f0:00:00:59:e5:bb",
+    "name": "Camera - Front Yard",
+    "description": "Camera - Front Yard",
+    "hostname": "front-yard.camera.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "9c:8e:cd:2b:06:30",
+    "name": "Camera - Front Door",
+    "description": "Camera - Front Door",
+    "hostname": "front-door.camera.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "9c:8e:cd:2c:52:b5",
+    "name": "Camera - Entryway",
+    "description": "Camera - Entryway",
+    "hostname": "entry-way.camera.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "c0:99:45:65:9a:ea",
+    "name": "Camera - Office",
+    "description": "Camera - Office",
+    "hostname": "office.camera.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "9c:8e:cd:2c:53:95",
+    "name": "Camera - Living Room",
+    "description": "Camera - Living Room",
+    "hostname": "living-room.camera.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "9c:8e:cd:2b:06:54",
+    "name": "Camera - Back Door",
+    "description": "Camera - Back Door",
+    "hostname": "back-door.camera.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "9c:8e:cd:2b:05:94",
+    "name": "Camera - Back Yard",
+    "description": "Camera - Back Yard",
+    "hostname": "back-yard.camera.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "9c:8e:cd:2c:61:9e",
+    "name": "Camera - MainBedroom",
+    "description": "Camera - MainBedroom",
+    "hostname": "main-bedroom.camera.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "f0:00:00:05:65:0b",
+    "name": "Camera - Garage",
+    "description": "Camera - Garage",
+    "hostname": "garage.camera.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "00:00:00:00:00:01",
+    "name": "Camera - Front-Side",
+    "description": "Camera - Front-Side",
+    "hostname": "front-side.camera.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "f4:cf:a2:cb:6a:9e",
+    "name": "Driveway Left Light",
+    "description": "Driveway Left Light",
+    "hostname": "ESP_CB6A9E.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "f4:cf:a2:cb:64:c2",
+    "name": "Driveway Right Light",
+    "description": "Driveway Right Light",
+    "hostname": "ESP_CB64C2.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "18:69:d8:53:c4:7a",
+    "name": "Front Porch Light",
+    "description": "Front Porch Light",
+    "hostname": "wlan0.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "70:89:76:d0:4c:ad",
+    "name": "Server Rack Interior Lights",
+    "description": "Server Rack Interior Lights",
+    "hostname": "wlan0.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "38:1f:8d:78:8c:f3",
+    "name": "Server Rack Exterior Lights",
+    "description": "Server Rack Exterior Lights",
+    "hostname": "wlan0.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:4c:fb:e3",
+    "name": "Front Yard Lights",
+    "description": "Front Yard Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:46:67:b3",
+    "name": "Entry Way Lights",
+    "description": "Entry Way Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:4c:01:a6",
+    "name": "Pet Closet Lights",
+    "description": "Pet Closet Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:4c:fd:8f",
+    "name": "Central Lights",
+    "description": "Central Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:4e:9f:e4",
+    "name": "Dining Room Lights",
+    "description": "Dining Room Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:4c:4b:a7",
+    "name": "Living Room Lights",
+    "description": "Living Room Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:4b:bc:6e",
+    "name": "Backyard Lights",
+    "description": "Backyard Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:4c:11:fc",
+    "name": "Under Cabinet Lights",
+    "description": "Under Cabinet Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:42:5f:72",
+    "name": "Kitchen Lights",
+    "description": "Kitchen Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:42:66:7b",
+    "name": "Pendant Lights",
+    "description": "Pendant Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:52:81:9b",
+    "name": "Mudroom Lights",
+    "description": "Mudroom Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:4c:d4:46",
+    "name": "PPC Lights",
+    "description": "PPC Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:41:46:aa",
+    "name": "Laundry Room Lights",
+    "description": "Laundry Room Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:52:81:d3",
+    "description": "Garage Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null,
+    "name": "Garage Lights"
+  },
+  {
+    "physical_address": "28:6d:97:4c:f3:ef",
+    "name": "Back Office Lights",
+    "description": "Back Office Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:46:49:53",
+    "name": "Stairway Lights",
+    "description": "Stairway Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:4c:10:8e",
+    "name": "Media Room Lights",
+    "description": "Media Room Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:4c:5b:b2",
+    "name": "Upstairs Balcony Lights",
+    "description": "Upstairs Balcony Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "28:6d:97:41:47:a7",
+    "name": "Upstairs Hallway Lights",
+    "description": "Upstairs Hallway Lights",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "44:00:49:7c:8f:a3",
+    "name": "Main Bedroom Lights",
+    "description": "Main Bedroom Lights",
+    "hostname": "AmazonPlug0DGG.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "5c:41:5a:ec:dc:57",
+    "name": "Office Bench Lights",
+    "description": "Office Bench Lights",
+    "hostname": "AmazonPlug163D.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "0c:ee:99:5a:92:0b",
+    "name": "Office Desk Lights",
+    "description": "Office Desk Lights",
+    "hostname": "AmazonPlug09NR.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "a0:d0:dc:af:e0:b8",
+    "name": "Front Yard Decorations",
+    "description": "Front Yard Holiday Decorations",
+    "hostname": "AmazonPlug0CHU.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "cc:f7:35:6e:e6:9e",
+    "name": "Mantle Decorations",
+    "description": "Fireplace Mantle Decorations",
+    "hostname": "AmazonPlug0SXP.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "08:12:a5:fc:b6:41",
+    "name": "Main Tree",
+    "description": "Downstairs Holiday Tree",
+    "hostname": "AmazonPlug13U5.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "00:00:00:00:00:04",
+    "name": "Alternate Tree",
+    "description": "Upstairs Holiday Tree",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "1c:fe:2b:a8:89:32",
+    "name": "Balcony Decorations",
+    "description": "Balcony Decorations",
+    "hostname": "AmazonPlug0M0T.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "10:09:f9:4e:0a:90",
+    "name": "Front Window Decorations",
+    "description": "Front Window Holiday Decorations",
+    "hostname": "AmazonPlug02BJ.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "74:e2:0c:30:2b:eb",
+    "name": "Side Window Decorations",
+    "description": "Side Window/Stairway Holiday Decorations",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "08:84:9d:7d:87:1d",
+    "name": "Kitchen Show",
+    "description": "Kitchen Show",
+    "hostname": "amazon-f0aca1f51.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "78:e1:03:9e:e1:dd",
+    "name": "Garage Dot",
+    "description": "Garage Dot",
+    "hostname": "amazon-c2d1b27ab.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "b0:fc:0d:be:c6:78",
+    "name": "Office Dot",
+    "description": "Office Dot",
+    "hostname": "amazon-e05668f9d.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "74:e2:0c:51:38:15",
+    "name": "Holiday Closet Dot",
+    "description": "Holiday Closet Dot",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "68:9a:87:fd:1c:7a",
+    "name": "Media Room Show",
+    "description": "Media Room Show",
+    "hostname": "amazon-1fad758c5.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "78:e1:03:7e:8d:8a",
+    "name": "Media Room Dot",
+    "description": "Media Room Dot",
+    "hostname": "amazon-35cf60019.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "f0:81:73:7e:4b:85",
+    "name": "Back Office Spot",
+    "description": "Back Office Spot",
+    "hostname": "amazon-ed5b03f4d.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "08:a6:bc:eb:11:1f",
+    "name": "Main Bedroom Spot",
+    "description": "Main Bedroom Spot",
+    "hostname": "amazon-f7986c30f.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "ec:2b:eb:37:01:f7",
+    "name": "Main Bathroom Dot",
+    "description": "Main Bathroom Dot",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "10:ce:02:b4:37:78",
+    "name": "Bedroom 2 Dot",
+    "description": "Bedroom 2 Dot",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "d8:fb:d6:d2:78:65",
+    "name": "Bedroom 3 Dot",
+    "description": "Bedroom 3 Dot",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "b0:f7:c4:a0:c7:d9",
+    "name": "Bedroom 4 Dot",
+    "description": "Bedroom 4 Dot",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "bc:ff:4d:10:76:52",
+    "name": "Yard Gate Lock",
+    "description": "Yard Gate Lock",
+    "hostname": "yard-gate.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "bc:ff:4d:0f:aa:2d",
+    "name": "Trash  Gate Lock",
+    "description": "Trash  Gate Lock",
+    "hostname": "trash-gate.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "20:d7:78:d3:2a:08",
+    "name": "Front Door Lock",
+    "description": "Front Door Lock",
+    "hostname": "schlage.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "64:52:99:e3:c7:75",
+    "name": "Garage Door Opener",
+    "description": "Garage Door Opener",
+    "hostname": "MyQ-892.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "48:a2:e6:0c:fc:31",
+    "name": "Downstairs Thermostat",
+    "description": "Downstairs Thermostat",
+    "hostname": "Lyric-0CFC31.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "48:a2:e6:0c:cc:2d",
+    "name": "Upstairs Thermostat",
+    "description": "Upstairs Thermostat",
+    "hostname": "Lyric-0CCC2D.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "88:e7:12:30:17:e8",
+    "name": "Whirlpool Oven",
+    "description": "Whirlpool Oven",
+    "hostname": "OVEN_88_E7_12_30_17_E8.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "00:00:00:00:00:02",
+    "name": "Whirlpool Dryer",
+    "description": "Whirlpool Dryer",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "00:00:00:00:00:03",
+    "name": "Whirlpool Washer",
+    "description": "Whirlpool Washer",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "b0:4a:39:3a:97:0c",
+    "name": "RoboRock Vaccum - Downstairs",
+    "description": "RoboRock Vacuum - Downstairs",
+    "hostname": "roborock-vacuum-a15.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "64:90:c1:18:ea:dc",
+    "name": "RoboRock Vaccum - Upstairs",
+    "description": "RoboRock Vacuum - Upstairs",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "7c:f6:66:5c:39:df",
+    "name": "Oaken's Feeder",
+    "description": "Oaken's Automatic Feeder",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "7c:f6:66:5c:65:f1",
+    "name": "Sedona's Feeder",
+    "description": "Sedona's Automatic Feeder",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "60:6d:3c:19:40:4e",
+    "name": "Living Room FireTV Stick",
+    "description": "Living Room FireTV Stick",
+    "hostname": "amazon-86fa6ba79.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "14:3f:a6:4d:35:e0",
+    "name": "Living Room BlueRay Player",
+    "description": "Living Room BlueRay Player",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "10:4f:a8:f2:82:0f",
+    "name": "Media Room BlueRay Player",
+    "description": "Media Room BlueRay Player",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "10:ae:60:9f:ea:ae",
+    "name": "Bedroom 4 FireTV",
+    "description": "Bedroom 4 FireTV",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "00:e0:4c:36:fe:67",
+    "name": "Zach's Chromecast",
+    "description": "Zach's Chromecast",
+    "hostname": "Chromecast-Audio.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "34:d2:70:30:8e:76",
+    "name": "Zach's Echo Tap",
+    "description": "Zach's Echo Tap",
+    "hostname": "Tap-709701PT.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "00:0e:c6:ee:b2:b5",
+    "name": "Chris's Nintendo Switch - Ethernet",
+    "description": "Chris's Nintendo Switch - Ethernet",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "64:b5:c6:b5:48:8d",
+    "name": "Chris's Nintendo Switch - WiFi",
+    "description": "Chris's Nintendo Switch - WiFi",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "f0:51:ea:a8:30:45",
+    "name": "Zach's Watch",
+    "description": "Zach's Watch",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "f2:63:da:74:da:a8",
+    "name": "Ford Escape - 2022",
+    "description": "Ford Escape - 2022",
+    "hostname": "-",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "00:d0:2d:af:50:39",
+    "name": "Honeywell Wifi Thermostat",
+    "description": "Honeywell Wifi Thermostat",
+    "hostname": "GatewayAF5039.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "fc:65:de:1c:34:e0",
+    "name": "Original Show",
+    "description": "Original Show",
+    "hostname": "amazon-373b263b0.iot.network.rivin.net",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+      "local_access",
+      "remote_access"
+    ],
+    "version": 0,
+    "purge_at": null
+  },
+  {
+    "physical_address": "ff:ff:ff:ff:ff:fe",
+    "name": "SYNC DB",
+    "description": "SYNC DB",
+    "hostname": "",
+    "ip_addresses": [
+
+    ],
+    "tables": [
+
+    ],
+    "version": -1,
+    "purge_at": null
+  }
+]

@@ -1,0 +1,110 @@
+#!/usr/bin/env ruby
+require 'optimist'
+$LOAD_PATH.unshift(File.expand_path("#{__dir__}/../lib"))
+require 'tblsync'
+
+
+$options = Optimist::options do
+    opt :debug,            "Debug Mode",                          type: :flag,    default: true
+    opt :sync_port,        "TableSync Control Port",              type: :integer, default: 8484
+    opt :sync_peer,        "TableSync Control Peer",              type: :string,  default: '127.0.0.1'
+
+    opt :resync,           "Resync table entries with all peers", type: :flag
+    opt :refresh,          "Refresh the physical address table",  type: :flag
+    opt :update,           "Add/Update a table entry",            type: :flag
+    opt :get_all,          "Return all table entries",            type: :flag
+    opt :get_one,          "Return one table entry",              type: :flag
+    opt :enable,           "Enable updating PF tables",           type: :flag
+    opt :disable,          "Disable updating PF tables",          type: :flag
+    opt :commit,           "Commit the address table",            type: :flag
+    conflicts :resync, :refresh, :update, :get_all, :get_one, :enable, :disable, :commit
+
+    opt :physical_address, "Ethernet Physical Address",           type: :string
+    opt :name,             "Entry Name",                          type: :string
+    opt :description,      "Entry Description",                   type: :string
+    opt :hostname,         "Hostname",                            type: :string
+    opt :ip_addresses,     "IP Addresses",                        type: :strings
+    opt :tables,           "Tables to join",                      type: :strings
+    opt :purge_at,         "Entry Expiration",                    type: :string
+end
+
+
+def print_row(name, description, hostname, physical_address, version, purge_at, tables, ip_addresses)
+    print [
+        name.to_s.ljust(50),
+        #description.to_s.ljust(8),
+        #hostname.to_s.ljust(8),
+        physical_address.to_s.ljust(18),
+        version.to_s.ljust(3),
+        purge_at.to_s.ljust(8),
+        tables.join(",").ljust(32),
+        ip_addresses.sort_by(&:size)[0,1].join(","),
+    ].join(" | ") + "\n"
+end
+
+
+def main()
+    control = TblSync::Control.new($options[:sync_port] + 1, ["#{$options[:sync_peer]}:#{$options[:sync_port]}"])
+
+    if $options[:resync]
+        control.notify_single_peer({'type' => 'resync'})
+
+    elsif $options[:refresh]
+        control.notify_single_peer({'type' => 'refresh'})
+
+    elsif $options[:update]
+        msg, peer_name = if $options[:physical_address] && $options[:physical_address] != TblSync::HostEntry::RANDOM_PHYSICAL_ADDRESS
+            control.notify_single_peer({'type' => 'get-one', 'data' => $options[:physical_address]})
+            msg, peer_name = control.read_message()
+        else
+            msg, peer_name = {'data' => nil}, nil
+        end
+        table_entry = TblSync::HostEntry.new(msg['data'] ? msg['data'] : {'physical_address' => $options[:physical_address]})
+        table_entry.name         = $options[:name]         unless $options[:name].nil?
+        table_entry.description  = $options[:description]  unless $options[:description].nil?
+        table_entry.hostname     = $options[:hostname]     unless $options[:hostname]
+        table_entry.ip_addresses = $options[:ip_addresses] unless $options[:ip_addresses].nil?
+        table_entry.tables       = $options[:tables]       unless $options[:tables].nil?
+        table_entry.version      += 1
+        table_entry.purge_at     = (Time.now + 30).to_i    unless $options[:purge_at].nil?
+        control.notify_single_peer({'type' => 'update', 'data' => table_entry})
+        print JSON.pretty_generate(table_entry) + "\n\n"
+
+    elsif $options[:get_all]
+        print_row("Name", "Description", "Hostname", "PhysAddr", "V", "PurgeAt", ["Tables"], ["IpAddresses"])
+        control.notify_single_peer({'type' => 'get-all'})
+        loop do
+            msg, peer_name = control.read_message()
+            break if msg['data'].nil?
+            entry = TblSync::HostEntry.new(msg['data'])
+            print_row(entry.name, entry.description, entry.hostname, entry.physical_address, entry.version, entry.purge_at, entry.tables, entry.ip_addresses)
+        end
+
+    elsif $options[:get_one]
+        msg, peer_name = if $options[:physical_address] && $options[:physical_address] != TblSync::HostEntry::RANDOM_PHYSICAL_ADDRESS
+            control.notify_single_peer({'type' => 'get-one', 'data' => $options[:physical_address]})
+            msg, peer_name = control.read_message()
+        else
+            msg, peer_name = {'data' => nil}, nil
+        end
+        table_entry = TblSync::HostEntry.new(msg['data'] ? msg['data'] : {'physical_address' => $options[:physical_address]})
+        print JSON.pretty_generate(table_entry) + "\n\n"
+
+    elsif $options[:enable]
+        control.notify_single_peer({'type' => 'enable'})
+
+    elsif $options[:disable]
+        control.notify_single_peer({'type' => 'disable'})
+
+    elsif $options[:commit]
+        control.notify_single_peer({'type' => 'commit'})
+
+    else
+        print "Missing Command\n"
+
+    end
+
+
+    return 0
+end
+exit main() if $0 == __FILE__

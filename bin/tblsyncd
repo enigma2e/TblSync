@@ -1,0 +1,141 @@
+#!/usr/bin/env ruby
+require 'optimist'
+$LOAD_PATH.unshift(File.expand_path("#{__dir__}/../lib"))
+require 'tblsync'
+
+
+$options = Optimist::options do
+    opt :debug,        "Debug Mode",                                type: :flag,    default: false
+    opt :pid,          "PID File",                                  type: :string,  default: "/var/run/tblsync.pid"
+    opt :db_file,      "Persistent DB File to store entries",       type: :string,  default: "/var/db/tblsync.json"
+    opt :sync_port,    "TableSync Control Port",                    type: :integer, default: TblSync::Control::DEFAULT_SYNC_PORT
+    opt :sync_peers,   "TableSync Peers",                           type: :strings, default: TblSync::Control::DEFAULT_SYNC_PEERS
+    opt :pf_update,    "Keep PF Tables up-to-date",                 type: :flag,    default: false
+end
+
+
+def main()
+    print "Loading Address Mapper...\n"
+    addr_mapper = TblSync::AddressMapper.instance()
+    print "\tLoaded #{addr_mapper.entries.size} entries\n\n"
+
+    print "Loading Persisted Entries...\n"
+    main_table = TblSync::AddressTable.new($options[:db_file])
+    print "\tLoaded #{main_table.entries.size} entries\n\n"
+
+    pf = TblSync::PfTables.new($options[:pf_update])
+
+    unless $options[:debug]
+        exit if fork
+        Process.setsid
+        exit if fork
+        Dir.chdir "/tmp"
+        File.delete($options[:pid]) if File.exists?($options[:pid])
+        File.write($options[:pid], "#{Process.pid}\n")
+    end
+
+    control = TblSync::Control.new($options[:sync_port], $options[:sync_peers])
+    trap(:QUIT) { control.quit }
+
+    # first we need to fetch all of the entries from EVERY peer so we have a complete initial table
+    control.notify_all_peers({'type' => 'get-all', 'data' => nil})
+    print "Queried Peers:#{control.sync_peers.join(",")}\n\n" if $options[:debug]
+
+
+    # process update messages from peers and command messages from control clients
+    control.process_messages() do |msg,sync_peer|
+        print "RECEIVE MESSAGE:#{msg['type']} FROM:#{sync_peer}\n" if $options[:debug]
+        needs_commit = false
+
+        case msg['type']
+
+        # A resync is when we fetch all of the entries from a random peer in case we missed any updates
+        when 'resync'
+            control.notify_single_peer({'type' => 'get-all', 'data' => nil})
+
+        # A refresh checks/converts every physical address we have into an IP address via (ARP/NDP)
+        when 'refresh'
+            addr_mapper.refresh()
+            main_table.entries.each do |host_entry|
+                print "\tEntry:#{host_entry.physical_address}\n" if $options[:debug]
+                new_ip_addresses = addr_mapper.phys_to_ip(host_entry.physical_address).sort
+                if new_ip_addresses.size > 0 && host_entry.ip_addresses != new_ip_addresses
+                    print "\t\t#{new_ip_addresses}\n" if $options[:debug]
+                    host_entry.ip_addresses = new_ip_addresses
+                    host_entry.version += 1
+                    main_table.db_ver.version += 1
+                    needs_commit ||= true
+
+                    control.notify_all_peers({'type' => 'update', 'data' => host_entry})
+                end
+            end
+
+        # one of our peers has made an update (maybe it could map an IP address) so we need to take the update
+        when 'update'
+            if msg['data']
+                host_entry = TblSync::HostEntry.new(msg['data'])
+                print "\tChecking:#{host_entry.physical_address}\n" if $options[:debug]
+                if main_table.update(host_entry)
+                    print "\tUpdated\n" if $options[:debug]
+                    main_table.db_ver.version += 1
+                    needs_commit ||= true
+
+                    control.notify_all_peers({'type' => 'update', 'data' => host_entry})
+                end
+            end
+
+        # a new peer has come online (or its a periodic full sync) so we need to send the full table
+        when 'get-all'
+            main_table.entries.each do |host_entry|
+                control.notify_specific_peer(sync_peer, {'type' => 'update', 'data' => host_entry})
+            end
+            control.notify_specific_peer(sync_peer, {'type' => 'update', 'data' => main_table.db_ver})
+            control.notify_specific_peer(sync_peer, {'type' => 'update', 'data' => nil})
+
+        # control program requests one entry to examine, return it
+        when 'get-one'
+            control.notify_specific_peer(sync_peer, {'type' => 'update', 'data' => main_table.find_by_physical_address(msg['data'])} )
+
+        # control program requests status of this peer
+        when 'status'
+            control.notify_specific_peer(sync_peer, {'type' => 'status', 'data' => {
+                'status'  => 'OK',
+                'update'  => pf.enabled ? 'YES' : 'NO',
+                'peers'   => control.sync_peers,
+                'version' => main_table.db_ver.version,
+                'entries' => main_table.entries.size,
+                'tables'  => main_table.by_table.transform_values{ |vals| vals.size },
+            }} )
+
+        # control program requests we start updating the PF tables
+        when 'enable'
+            pf.enabled = true
+
+        # control program requests we stop updating the PF tables
+        when 'disable'
+            pf.enabled = false
+
+        # control program requests we save our database
+        when 'commit'
+            needs_commit ||= true
+
+        end
+        print "\tDONE at #{Time.now}\n\n" if $options[:debug]
+
+        # remove any entries that have expired (been flagged for removal)
+        needs_commit ||= main_table.purge!
+
+        # update the PF tables if needed
+        pf.update_from(main_table, $options[:debug])
+
+        # persist the table to disk if any changes have been made
+        main_table.commit! if needs_commit
+
+        print "\n"
+    end
+
+    File.delete($options[:pid]) if File.exists?($options[:pid])
+    return 0
+end
+
+exit main() if $0 == __FILE__
